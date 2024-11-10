@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Find Nearby Facilities</title>
+	</head>
+	<body>
+		<h1>Find Nearby Hospitals and Clinics</h1>
+
+		<!-- Form for manual location input -->
+		<div>
+			<label for="locationInput"
+				>Enter your location (e.g., city or address):
+			</label>
+			<input
+				type="text"
+				id="locationInput"
+				placeholder="e.g., Johannesburg, South Africa"
+			/>
+			<button onclick="updateMap()">Search</button>
+		</div>
+
+		<!-- Container for the map -->
+		<div id="mapContainer" style="margin-top: 20px">
+			<iframe
+				id="mapFrame"
+				width="600"
+				height="450"
+				style="border: 0"
+				loading="lazy"
+				allowfullscreen
+				referrerpolicy="no-referrer-when-downgrade"
+			>
+			</iframe>
+		</div>
+
+		<script>
+			function initializeMap(latitude, longitude) {
+				const apiKey = "{{ google_maps_api_key }}";
+				const mapUrl = `https://www.google.com/maps/embed/v1/search?key=${apiKey}&q=hospitals+near+${latitude},${longitude}`;
+				document.getElementById("mapFrame").src = mapUrl;
+			}
+
+			function updateMap() {
+				const location = document.getElementById("locationInput").value;
+				const apiKey = "{{ google_maps_api_key }}";
+				if (location) {
+					const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(
+						location
+					)}+hospital+clinic+pharmacy`;
+					document.getElementById("mapFrame").src = mapUrl;
+				} else {
+					alert("Please enter a location.");
+				}
+			}
+
+			// Attempt to get user location on page load (optional)
+			function getUserLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(
+						(position) => {
+							const latitude = position.coords.latitude;
+							const longitude = position.coords.longitude;
+							initializeMap(latitude, longitude);
+						},
+						(error) => {
+							console.error("Error getting location: ", error);
+						}
+					);
+				}
+			}
+
+			// Optional: load map based on user location on page load
+			window.onload = getUserLocation;
+		</script>
+	</body>
+</html>
