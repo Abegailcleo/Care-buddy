@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Symptom Checker</title>
+	</head>
+	<body>
+		<h1>Symptom Checker</h1>
+
+		<form method="POST" action="/symptom-checker">
+			<label for="symptoms">Enter your symptoms:</label>
+			<input type="text" id="symptoms" name="symptoms" required />
+			<button type="submit">Check Symptoms</button>
+		</form>
+
+		{% if advice %}
+		<h2>Health Advice:</h2>
+		<pre>{{ advice }}</pre>
+
+		{% for symptom in symptoms %}
+		<h3>Was the advice helpful for {{ symptom }}?</h3>
+		<form method="POST" action="/feedback">
+			<input type="hidden" name="symptom" value="{{ symptom }}" />
+			<input
+				type="radio"
+				id="yes-{{ symptom }}"
+				name="feedback"
+				value="yes"
+				required
+			/>
+			<label for="yes-{{ symptom }}">Yes</label><br />
+			<input
+				type="radio"
+				id="no-{{ symptom }}"
+				name="feedback"
+				value="no"
+				required
+			/>
+			<label for="no-{{ symptom }}">No</label><br />
+			<button type="submit">Submit Feedback</button>
+		</form>
+		{% endfor %} {% endif %}
+
+		<br />
+		<a href="/feedback-summary">View Feedback Summary</a>
+	</body>
+</html>

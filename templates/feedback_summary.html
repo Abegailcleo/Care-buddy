@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Feedback Summary</title>
+	</head>
+	<body>
+		<h1>Feedback Summary</h1>
+
+		{% for symptom, counts in feedback_counts.items() %}
+		<h3>{{ symptom.capitalize() }}</h3>
+		<p>Helpful: {{ counts['yes'] }}</p>
+		<p>Not Helpful: {{ counts['no'] }}</p>
+		{% endfor %}
+
+		<a href="/symptom-checker">Back to Symptom Checker</a>
+	</body>
+</html>
