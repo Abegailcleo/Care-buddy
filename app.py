@@ -39,11 +39,15 @@ def check_symptoms(user_input):
 feedback_counts = {}
 
 # Home route
+
 @app.route('/')
 def home():
     return render_template('home.html')  # Render the homepage template
 
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 # Map route
 @app.route('/map')
 def map():
