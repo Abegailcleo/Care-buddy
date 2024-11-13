@@ -1,0 +1,174 @@
+/* General Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Body and Text Styling */
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+}
+
+/* Header Styling */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	background-color: #066eaa;
+	color: #fff;
+}
+.logo {
+	display: flex;
+	align-items: center;
+}
+.logo img {
+	width: 50px;
+	margin-right: 10px;
+}
+.nav-menu a,
+#language-selector {
+	margin: 0 10px;
+	color: #fff;
+	text-decoration: none;
+}
+.nav-menu a:hover {
+	text-decoration: underline;
+}
+
+/* Main Section Styling */
+.main-section {
+	text-align: center;
+	padding: 2rem;
+	background: linear-gradient(to right, #75c578, #23597e);
+	color: #fff;
+}
+.welcome-banner h2 {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.welcome-banner p {
+	font-size: 1.1rem;
+	margin-bottom: 2rem;
+	text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.19);
+}
+
+.welcome-banner {
+	display: flex; /* Enables flexbox layout */
+	align-items: center; /* Vertically centers content */
+	gap: 20px;
+	padding: 40px; /* Adds space between text and image */
+}
+
+.welcome-text {
+	max-width: 60%; /* Limits the width of the text container */
+}
+
+.welcome-image {
+	max-width: 35%; /* Limits the image width */
+	height: auto; /* Keeps the image's aspect ratio */
+}
+.feature-icons {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 2rem;
+	background-color: #fff;
+	padding: 60px;
+}
+
+.why-us h1 {
+	font-size: 2rem;
+	color: black;
+	margin-bottom: 40px;
+	top: 0%;
+}
+.feature {
+	flex: 1;
+	max-width: 250px;
+	margin: 1rem;
+	padding: 1.5rem;
+	background: #23597e;
+	border-radius: 8px;
+	text-align: center;
+	color: #fff;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.feature i {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.get-started-btn {
+	margin-top: 2rem;
+	padding: 0.75rem 2rem;
+	font-size: 1.2rem;
+	background-color: #fff;
+	color: #4caf50;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+.get-started-btn:hover {
+	background-color: #e0e0e0;
+}
+
+/* Footer Styling */
+.footer {
+	padding: 1rem;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+}
+.footer-nav a {
+	margin: 0 10px;
+	color: #fff;
+	text-decoration: none;
+}
+.footer-nav a:hover {
+	text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.feature-icons {
+		flex-direction: column;
+		align-items: center;
+	}
+	.get-started-btn {
+		width: 80%;
+	}
+}
+
+/* dashboard design */
+
+/* Glassmorphism Style for Card Containers */
+.card {
+	background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+	border-radius: 15px; /* Rounded corners */
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+	backdrop-filter: blur(10px); /* Frosted glass effect */
+	border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover transition */
+}
+
+/* Hover effect to enhance the glass look */
+.card:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional text styling to improve readability on glass background */
+.card-title,
+.card-text,
+.btn {
+	color: #fff; /* White text */
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
+}
