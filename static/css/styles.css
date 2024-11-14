@@ -14,7 +14,10 @@ body {
 
 /* Header Styling */
 .header {
+	position: fixed;
 	display: flex;
+	height: 70px;
+	width: 100%;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
@@ -29,13 +32,22 @@ body {
 	width: 50px;
 	margin-right: 10px;
 }
-.nav-menu a,
-#language-selector {
-	margin: 0 10px;
-	color: #fff;
-	text-decoration: none;
+.nav-menu a {
+    margin: 0 10px;
+    padding: 10px 20px; /* Adds space inside the links for a button-like effect */
+    color: #141414; /* White text color */
+    background-color: #fff; /* Green background */
+    text-decoration: none; /* Removes the underline */
+    border-radius: 25px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text inside the link */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition on hover */
 }
+
 .nav-menu a:hover {
+	color: #fff;
+    background-color: #066eaa; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
 	text-decoration: underline;
 }
 
@@ -62,49 +74,109 @@ body {
 	align-items: center; /* Vertically centers content */
 	gap: 20px;
 	padding: 40px; /* Adds space between text and image */
+	
+}
+.Welcome-text{
+	margin-bottom: 120px;
 }
 
 .welcome-text {
-	max-width: 60%; /* Limits the width of the text container */
+	max-width: 60%; /* Limits the width of the text container */;
 }
 
 .welcome-image {
 	max-width: 35%; /* Limits the image width */
 	height: auto; /* Keeps the image's aspect ratio */
 }
-.search-bar{
-	background-color: #333;
-	width: 600px;
-	height: 200px;
-	margin-left: 30px;
+.search-bar {
 	position: absolute;
+	top: 466px;
+	left: 80px;
+    width: 600px;
+    height: 230px;
+    margin: 30px auto; /* Centering the search bar and adding space from the top */
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+	/*background: rgba(255, 255, 255, 0.1); 
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
 }
+
+.search-bar input {
+    width: 100%; /* Make it take up the full width of the search bar */
+    padding: 10px; /* Add padding for better text placement */
+    font-size: 1.2rem; /* Increase font size for better readability */
+    color: #333; /* Dark text for contrast */
+	background-color:#eeeeee; /* White background for the input field */
+    border: 2px solid #4caf50; /* Green border to match your button's theme */
+    border-radius: 8px; /* Rounded corners for the input */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    margin-bottom: 10px; /* Add space below the input */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+/* Button Styling */
+.btn {
+    padding: 12px 24px; /* Increase padding for a more prominent button */
+    font-size: 1.2rem; /* Ensure the text is readable */
+    background-color: #fff; /* Green background */
+	color: #4caf50;
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Round the corners for a soft look */
+    cursor: pointer; /* Make the cursor a pointer when hovering */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+	font-weight: 600;
+}
+
+/* Hover effect for the button */
+.btn:hover {
+	background-color: #e0e0e0;
+    transform: scale(1.05); /* Slightly enlarge the button when hovered */
+}
+
+/* Focus state for accessibility */
+.btn:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 8px rgba(0, 102, 170, 0.5); /* Blue shadow for focus */
+}
+
+
+/* Focus state for the input */
+.search-bar input:focus {
+    border-color: #066eaa; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 102, 170, 0.5); /* Soft blue shadow on focus */
+    outline: none; /* Remove the default outline */
+}
+.custom-line {
+    border: 0;
+    border-top: 2px solid #ccc; /* Customize thickness and color */
+    margin-top: 70px; /* Add space above and below the line */
+}
+
 
 .why-us {
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.why-us h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
+    margin-top: 120px;
+	margin-bottom: 0;
 }
 /* Feature Icons Container */
 .feature-icons {
+	background-color: #eeeeee;;
     display: flex;
     justify-content: space-between; /* Align cards horizontally with space between */
     flex-wrap: wrap; /* Allow wrapping of cards on smaller screens */
     gap: 20px; /* Add space between cards */
     margin-top: 2rem;
-    padding: 60px;
+    padding: 30px;
 }
 
 /* Heading Styling */
 .why-us h1 {
     font-size: 2.5rem; /* Increased font size */
-    color: black;
+    color: #fff;
     margin-bottom: 40px;
+	font-weight: bold;
     text-align: center; /* Center-align the heading */
 }
 
@@ -141,9 +213,8 @@ body {
 	color: #4caf50;
 	font-weight: bold;
 	border: none;
-	border-radius: 5px;
+	border-radius: 25px;
 	cursor: pointer;
-	transition: background 0.3s ease;
 }
 .get-started-btn:hover {
 	background-color: #e0e0e0;
