@@ -2,7 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Care Buddy Dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CareBuddy Dashboard</title>
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -13,89 +14,149 @@
 		/>
 	</head>
 	<body>
-		<header class="header">
-			<div class="logo">
-				<img src="static/images/logo.png" alt="App Logo" />
-				<h1>CareBuddy</h1>
-			</div>
-			<nav class="nav-menu">
-				<a href="#home">Home</a>
+		<div class="dashboard-container">
+			<!-- Sidebar -->
+			<nav class="sidebar">
+				<h2>Welcome, {{ user_name }}</h2>
+				<ul class="sidebar-menu">
+					<li><a href="{{ url_for('home') }}">Home</a></li>
+					<li><a href="{{ url_for('map') }}">Nearby Healthcare Locator</a></li>
+					<li>
+						<a href="{{ url_for('symptom_checker') }}">Symptom Checker</a>
+					</li>
+					<li><a href="#health-advice">Health Advice</a></li>
+					<li><a href="#profile">Profile & Settings</a></li>
+					<li>
+						<a href="{{ url_for('show_events') }}" class="btn btn-primary mt-4"
+							>View Care Events</a
+						>
+					</li>
+				</ul>
 			</nav>
-		</header>
-		<main class="main-section">
-			<div class="container">
-				<h1 class="mt-5">Dashboard</h1>
-				<p class="lead">Choose a feature below to get started.</p>
 
-				<div class="row">
-					<!-- Map Feature -->
-					<div class="col-md-4 mb-3">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title">Nearby Facilities Map</h5>
-								<p class="card-text">
-									Find hospitals, clinics, and pharmacies near you.
-								</p>
-								<a href="{{ url_for('map') }}" class="btn btn-primary"
-									>View Map</a
-								>
+			<!-- Main Content Area -->
+			<main class="main-content">
+				<h1 class="main-title">Dashboard</h1>
+				<p class="welcome-message">Choose a feature below to get started.</p>
+
+				<!-- Feature Cards -->
+				<div class="container">
+					<div class="row">
+						<!-- Nearby Healthcare Locator Card -->
+						<div class="col-md-4 mb-4">
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title">Nearby Healthcare Locator</h5>
+									<p class="card-text">Find healthcare facilities near you.</p>
+									<a href="{{ url_for('map') }}" class="btn btn-primary"
+										>View Map</a
+									>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<!-- Symptom Checker Feature -->
-					<div class="col-md-4 mb-3">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title">Symptom Checker</h5>
-								<p class="card-text">
-									Enter symptoms to receive basic health advice.
-								</p>
-								<a
-									href="{{ url_for('symptom_checker') }}"
-									class="btn btn-primary"
-									>Check Symptoms</a
-								>
+						<!-- Symptom Checker Card -->
+						<div class="col-md-4 mb-4">
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title">Symptom Checker</h5>
+									<p class="card-text">
+										Enter symptoms to receive health advice.
+									</p>
+									<a
+										href="{{ url_for('symptom_checker') }}"
+										class="btn btn-primary"
+										>Check Symptoms</a
+									>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<!-- Feedback Summary Feature -->
-					<div class="col-md-4 mb-3">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title">Feedback Summary</h5>
-								<p class="card-text">
-									See feedback on advice provided to help us improve.
-								</p>
-								<a
-									href="{{ url_for('feedback_summary') }}"
-									class="btn btn-primary"
-									>View Feedback</a
-								>
-							</div>
-						</div>
-					</div>
-
-					<!-- Multilingual Support Feature -->
-					<div class="col-md-4 mb-3">
-						<div class="card">
-							<div class="card-body">
-								<h5 class="card-title">Language Support</h5>
-								<p class="card-text">
-									Use the Symptom Checker in isiZulu, isiXhosa, Afrikaans, and
-									more.
-								</p>
-								<a
-									href="{{ url_for('symptom_checker') }}"
-									class="btn btn-primary"
-									>Use Multilingual Symptom Checker</a
-								>
+						<!-- Health Advice Card -->
+						<div class="col-md-4 mb-4">
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title">Health Advice</h5>
+									<p class="card-text">Get general health tips and advice.</p>
+									<a
+										href="{{ url_for('feedback_summary') }}"
+										class="btn btn-primary"
+										>View Feedback</a
+									>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</main>
+		</div>
+
+		<!-- Care Events Modal -->
+		<div
+			class="modal fade"
+			id="eventModal"
+			tabindex="-1"
+			aria-labelledby="eventModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="eventModalLabel">Add Care Event</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form action="{{ url_for('add_event') }}" method="POST">
+							<div class="form-group">
+								<label for="eventTitle">Event Title</label>
+								<input
+									type="text"
+									class="form-control"
+									id="eventTitle"
+									name="title"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="eventDate">Date</label>
+								<input
+									type="date"
+									class="form-control"
+									id="eventDate"
+									name="date"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="eventTime">Time</label>
+								<input
+									type="time"
+									class="form-control"
+									id="eventTime"
+									name="time"
+									required
+								/>
+							</div>
+							<div class="form-group">
+								<label for="eventDescription">Description</label>
+								<textarea
+									class="form-control"
+									id="eventDescription"
+									name="description"
+								></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary">Add Event</button>
+						</form>
+					</div>
+				</div>
 			</div>
-		</main>
+		</div>
 	</body>
 </html>

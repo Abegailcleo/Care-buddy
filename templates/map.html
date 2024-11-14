@@ -4,6 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Find Nearby Facilities</title>
+
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/maps.css') }}"
+		/>
 	</head>
 	<body>
 		<h1>Find Nearby Hospitals and Clinics</h1>
@@ -11,8 +16,8 @@
 		<!-- Form for manual location input -->
 		<div>
 			<label for="locationInput"
-				>Enter your location (e.g., city or address):
-			</label>
+				>Enter your location (e.g., city or address):</label
+			>
 			<input
 				type="text"
 				id="locationInput"
@@ -22,17 +27,13 @@
 		</div>
 
 		<!-- Container for the map -->
-		<div id="mapContainer" style="margin-top: 20px">
+		<div id="mapContainer">
 			<iframe
 				id="mapFrame"
-				width="600"
-				height="450"
-				style="border: 0"
 				loading="lazy"
 				allowfullscreen
 				referrerpolicy="no-referrer-when-downgrade"
-			>
-			</iframe>
+			></iframe>
 		</div>
 
 		<script>
