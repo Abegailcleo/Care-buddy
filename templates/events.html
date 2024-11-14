@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Care Events</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Care Events</h1>
+
+			<!-- List all events -->
+			<ul class="list-group mt-4">
+				{% for event in events %}
+				<li class="list-group-item">
+					<h5>{{ event.title }}</h5>
+					<p>{{ event.description }}</p>
+					<small>{{ event.event_date.strftime('%Y-%m-%d %H:%M') }}</small>
+				</li>
+				{% endfor %}
+			</ul>
+
+			<a href="{{ url_for('add_event') }}" class="btn btn-primary mt-4"
+				>Add New Event</a
+			>
+		</div>
+
+		<!-- Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
