@@ -235,7 +235,55 @@ body {
 .footer-nav a:hover {
 	text-decoration: underline;
 }
-
+/* Form Container Styling */
+.form-container {
+	background-color: #e9f5ff; /* Light blue background color */
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+	max-width: 500px;
+	margin: 0 auto; /* Center the form on the page */
+  }
+  
+  .form-container h1 {
+	font-size: 2rem;
+	color: #007bff; /* Blue color for form title */
+	text-align: center;
+	margin-bottom: 1.5rem;
+  }
+  
+  .form-group input {
+	padding: 0.8rem;
+	border: 1px solid #ddd; /* Light border around inputs */
+	border-radius: 5px;
+	font-size: 1rem;
+	width: 100%;
+  }
+  
+  .form-group input:focus {
+	border-color: #007bff; /* Highlight input on focus */
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Soft blue glow on focus */
+  }
+  
+  /* Button Styling */
+  #signupForm button[type="submit"] {
+	background-color: #007bff; /* Blue button background */
+	color: #fff;
+	border: none;
+	padding: 0.8rem;
+	font-size: 1.1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+	margin-top: 1rem;
+	transition: background-color 0.3s ease;
+  }
+  
+  #signupForm button[type="submit"]:hover {
+	background-color: #0056b3; /* Darker blue on hover */
+  }
+  
 /* Responsive Design */
 @media (max-width: 768px) {
 	.feature-icons {
