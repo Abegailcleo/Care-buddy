@@ -72,35 +72,65 @@ body {
 	max-width: 35%; /* Limits the image width */
 	height: auto; /* Keeps the image's aspect ratio */
 }
-.feature-icons {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	margin-top: 2rem;
-	background-color: #fff;
-	padding: 60px;
+.search-bar{
+	background-color: #333;
+	width: 600px;
+	height: 200px;
+	margin-left: 30px;
+	position: absolute;
+}
+
+.why-us {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .why-us h1 {
-	font-size: 2rem;
-	color: black;
-	margin-bottom: 40px;
-	top: 0%;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
 }
+/* Feature Icons Container */
+.feature-icons {
+    display: flex;
+    justify-content: space-between; /* Align cards horizontally with space between */
+    flex-wrap: wrap; /* Allow wrapping of cards on smaller screens */
+    gap: 20px; /* Add space between cards */
+    margin-top: 2rem;
+    padding: 60px;
+}
+
+/* Heading Styling */
+.why-us h1 {
+    font-size: 2.5rem; /* Increased font size */
+    color: black;
+    margin-bottom: 40px;
+    text-align: center; /* Center-align the heading */
+}
+
+/* Feature Card Styling */
 .feature {
-	flex: 1;
-	max-width: 250px;
-	margin: 1rem;
-	padding: 1.5rem;
-	background: #23597e;
-	border-radius: 8px;
-	text-align: center;
-	color: #fff;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 350px; /* Increased max-width for larger cards */
+    margin: 1rem;
+    padding: 2rem; /* Increased padding for bigger cards */
+    background: #23597e; /* Keep the original blue color */
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth scale transition on hover */
 }
+
+.feature:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+	background-color: #4c7b94; /* Lighter blue color */
+}
+
+/* Icon Styling */
 .feature i {
-	font-size: 2.5rem;
-	margin-bottom: 0.5rem;
+    font-size: 3rem; /* Increased icon size */
+    margin-bottom: 1rem; /* Adjusted space below icon */
 }
 
 .get-started-btn {

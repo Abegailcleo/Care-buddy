@@ -44,11 +44,26 @@
             <img src="static/images/welcome_pic.png" alt="welcome picture">
 
         </div>
+        <div class="search-bar">
+            <h1>Find Nearby Hospitals and Clinics</h1>
+
+		    <!-- Form for manual location input -->
+		    <div>
+			    <label for="locationInput">Enter your location (e.g., city or address):</label
+			    >
+			    <input
+			    	type="text"
+			    	id="locationInput"
+			    	placeholder="e.g., Johannesburg, South Africa"
+			    />
+			    <button onclick="updateMap()">Search</button>
+            </div>
+		</div>
         <div class="feature-icons">
-            <div class="why-us">
+           <!--- <div class="why-us">
                 <h1>Why Choose CareBuddy </h1>
             </div>
-            <br />
+            <br />-->
             <div class="feature">
                 <i class="fa fa-map-marker-alt icon-size"></i>
                 <h3>Find Nearby Healthcare</h3>
