@@ -20,8 +20,8 @@
             <h1>CareBuddy</h1>
         </div>
         <nav class="nav-menu">
-            <a href="#login">Login</a>
-            <a href="#signup">Signup</a>
+            <a class="top-btn" href="#login">Login</a>
+            <a class= "top-btn" href="#signup">Signup</a>
             <select id="language-selector">
                 <option value="en">English</option>
                 <option value="zu">isiZulu</option>
@@ -42,13 +42,27 @@
                     in?"</p>
             </div>
             <img src="static/images/welcome_pic.png" alt="welcome picture">
-
+            <div class="search-bar">
+                <h1>Find Nearby Hospitals and Clinics</h1>
+    
+                <!-- Form for manual location input -->
+                <div>
+                    <label for="locationInput">Enter your location (e.g., city or address):</label
+                    >
+                    <input
+                        type="text"
+                        id="locationInput"
+                        placeholder="e.g., Johannesburg, South Africa"
+                    />
+                    <button class="btn" onclick="updateMap()">Search</button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-line">
+        <div class="why-us">
+            <h1>Why Choose CareBuddy </h1>
         </div>
         <div class="feature-icons">
-            <div class="why-us">
-                <h1>Why Choose CareBuddy </h1>
-            </div>
-            <br />
             <div class="feature">
                 <i class="fa fa-map-marker-alt icon-size"></i>
                 <h3>Find Nearby Healthcare</h3>

@@ -1,0 +1,14 @@
+/* Hide the login form initially */
+#loginForm {
+    display: none;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+button {
+    width: 120px;
+    margin: 0 10px;
+}
